@@ -1,0 +1,12 @@
+D:\ERM\ERMCoreUI\ServicesLayer\bin\Debug\net5.0\ServicesLayer.deps.json
+D:\ERM\ERMCoreUI\ServicesLayer\bin\Debug\net5.0\ServicesLayer.dll
+D:\ERM\ERMCoreUI\ServicesLayer\bin\Debug\net5.0\ref\ServicesLayer.dll
+D:\ERM\ERMCoreUI\ServicesLayer\bin\Debug\net5.0\ServicesLayer.pdb
+D:\ERM\ERMCoreUI\ServicesLayer\obj\Debug\net5.0\ServicesLayer.csproj.AssemblyReference.cache
+D:\ERM\ERMCoreUI\ServicesLayer\obj\Debug\net5.0\ServicesLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\ERM\ERMCoreUI\ServicesLayer\obj\Debug\net5.0\ServicesLayer.AssemblyInfoInputs.cache
+D:\ERM\ERMCoreUI\ServicesLayer\obj\Debug\net5.0\ServicesLayer.AssemblyInfo.cs
+D:\ERM\ERMCoreUI\ServicesLayer\obj\Debug\net5.0\ServicesLayer.csproj.CoreCompileInputs.cache
+D:\ERM\ERMCoreUI\ServicesLayer\obj\Debug\net5.0\ServicesLayer.dll
+D:\ERM\ERMCoreUI\ServicesLayer\obj\Debug\net5.0\ref\ServicesLayer.dll
+D:\ERM\ERMCoreUI\ServicesLayer\obj\Debug\net5.0\ServicesLayer.pdb

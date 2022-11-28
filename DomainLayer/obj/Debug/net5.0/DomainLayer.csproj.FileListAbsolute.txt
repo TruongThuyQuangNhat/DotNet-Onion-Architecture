@@ -1,0 +1,12 @@
+D:\ERM\ERMCoreUI\DomainLayer\bin\Debug\net5.0\DomainLayer.deps.json
+D:\ERM\ERMCoreUI\DomainLayer\bin\Debug\net5.0\DomainLayer.dll
+D:\ERM\ERMCoreUI\DomainLayer\bin\Debug\net5.0\ref\DomainLayer.dll
+D:\ERM\ERMCoreUI\DomainLayer\bin\Debug\net5.0\DomainLayer.pdb
+D:\ERM\ERMCoreUI\DomainLayer\obj\Debug\net5.0\DomainLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\ERM\ERMCoreUI\DomainLayer\obj\Debug\net5.0\DomainLayer.AssemblyInfoInputs.cache
+D:\ERM\ERMCoreUI\DomainLayer\obj\Debug\net5.0\DomainLayer.AssemblyInfo.cs
+D:\ERM\ERMCoreUI\DomainLayer\obj\Debug\net5.0\DomainLayer.csproj.CoreCompileInputs.cache
+D:\ERM\ERMCoreUI\DomainLayer\obj\Debug\net5.0\DomainLayer.dll
+D:\ERM\ERMCoreUI\DomainLayer\obj\Debug\net5.0\ref\DomainLayer.dll
+D:\ERM\ERMCoreUI\DomainLayer\obj\Debug\net5.0\DomainLayer.pdb
+D:\ERM\ERMCoreUI\DomainLayer\obj\Debug\net5.0\DomainLayer.csproj.AssemblyReference.cache
