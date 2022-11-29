@@ -50,14 +50,11 @@ namespace ServicesLayer.NhanVienService
             var chucdanh = _repositoryChucDanh.GetAll();
             var phongban = _repositoryPhongBan.GetAll();
             if (search != "" && search != null) {
-                queryResultPage = queryResultPage.Where(a =>
-                {
-                    return a.FirstName.Contains(search) || a.LastName.Contains(search);
-                });
+                queryResultPage = from i in queryResultPage where i.FirstName.Contains(search) || i.LastName.Contains(search) select i;
             }
             if (key != "" && key != null && options != "" && options != null)
             {
-                if(key == "firstname" && options == "asc")
+                if (key == "firstname" && options == "asc")
                 {
                     queryResultPage = from i in queryResultPage orderby i.FirstName ascending select i;
                 } else if (key == "firstname" && options == "desc")
@@ -71,9 +68,11 @@ namespace ServicesLayer.NhanVienService
                     queryResultPage = from i in queryResultPage orderby i.LastName descending select i;
                 }
             }
+
             queryResultPage = queryResultPage
             .Skip(limitNew * (pageNew - 1))
             .Take(limitNew);
+
             var ketqua = from temp in queryResultPage
                          join c in chucvu on temp.ChucVu_ID equals c.Id
                          join d in chucdanh on temp.ChucDanh_ID equals d.Id
@@ -88,6 +87,8 @@ namespace ServicesLayer.NhanVienService
                              TenChucDanh = d.TenChucDanh,
                              TenPhongBan = p.TenPhongBan,
                          };
+
+            Console.WriteLine("6");
             return ketqua;
         }
 
