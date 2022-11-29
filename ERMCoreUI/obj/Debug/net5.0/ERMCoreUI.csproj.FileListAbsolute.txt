@@ -40,3 +40,5 @@ D:\ERM\ERMCoreUI\ERMCoreUI\obj\Debug\net5.0\ERMCoreUI.pdb
 D:\ERM\ERMCoreUI\ERMCoreUI\obj\Debug\net5.0\ERMCoreUI.genruntimeconfig.cache
 D:\ERM\ERMCoreUI\ERMCoreUI\bin\Debug\net5.0\Humanizer.dll
 D:\ERM\ERMCoreUI\ERMCoreUI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\ERM\ERMCoreUI\ERMCoreUI\bin\Debug\net5.0\ServicesLayer.dll
+D:\ERM\ERMCoreUI\ERMCoreUI\bin\Debug\net5.0\ServicesLayer.pdb

@@ -38,6 +38,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "5.0.3",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.0",
           "RepositoryLayer": "1.0.0",
+          "ServicesLayer": "1.0.0",
           "Swashbuckle.AspNetCore": "5.6.3",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
@@ -588,6 +589,18 @@
         },
         "compile": {
           "RepositoryLayer.dll": {}
+        }
+      },
+      "ServicesLayer/1.0.0": {
+        "dependencies": {
+          "DomainLayer": "1.0.0",
+          "RepositoryLayer": "1.0.0"
+        },
+        "runtime": {
+          "ServicesLayer.dll": {}
+        },
+        "compile": {
+          "ServicesLayer.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -2493,6 +2506,11 @@
       "sha512": ""
     },
     "RepositoryLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ServicesLayer/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

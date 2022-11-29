@@ -9,6 +9,11 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using RepositoryLayer;
+using ServicesLayer;
+using ServicesLayer.ChucDanhService;
+using ServicesLayer.ChucVuService;
+using ServicesLayer.NhanVienService;
+using ServicesLayer.PhongBanService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +42,14 @@ namespace ERMCoreUI
 
             #region Connection String  
             services.AddDbContext<ApplicationDbContext>(item => item.UseNpgsql(Configuration.GetConnectionString("myconn")));
+            #endregion
+
+            #region Services Injected  
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddTransient<INhanVienService, NhanVienService>();
+            services.AddTransient<IPhongBanService, PhongBanService>();
+            services.AddTransient<IChucVuService, ChucVuService>();
+            services.AddTransient<IChucDanhService, ChucDanhService>();
             #endregion
         }
 

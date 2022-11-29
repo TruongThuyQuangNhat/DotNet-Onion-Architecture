@@ -94,6 +94,9 @@
             "projectReferences": {
               "D:\\ERM\\ERMCoreUI\\RepositoryLayer\\RepositoryLayer.csproj": {
                 "projectPath": "D:\\ERM\\ERMCoreUI\\RepositoryLayer\\RepositoryLayer.csproj"
+              },
+              "D:\\ERM\\ERMCoreUI\\ServicesLayer\\ServicesLayer.csproj": {
+                "projectPath": "D:\\ERM\\ERMCoreUI\\ServicesLayer\\ServicesLayer.csproj"
               }
             }
           }
@@ -216,6 +219,67 @@
               "version": "[5.0.0, )"
             }
           },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.414\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\ERM\\ERMCoreUI\\ServicesLayer\\ServicesLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\ERM\\ERMCoreUI\\ServicesLayer\\ServicesLayer.csproj",
+        "projectName": "ServicesLayer",
+        "projectPath": "D:\\ERM\\ERMCoreUI\\ServicesLayer\\ServicesLayer.csproj",
+        "packagesPath": "C:\\Users\\TTQNHAT\\.nuget\\packages\\",
+        "outputPath": "D:\\ERM\\ERMCoreUI\\ServicesLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\TTQNHAT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\ERM\\ERMCoreUI\\DomainLayer\\DomainLayer.csproj": {
+                "projectPath": "D:\\ERM\\ERMCoreUI\\DomainLayer\\DomainLayer.csproj"
+              },
+              "D:\\ERM\\ERMCoreUI\\RepositoryLayer\\RepositoryLayer.csproj": {
+                "projectPath": "D:\\ERM\\ERMCoreUI\\RepositoryLayer\\RepositoryLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "imports": [
             "net461",
             "net462",

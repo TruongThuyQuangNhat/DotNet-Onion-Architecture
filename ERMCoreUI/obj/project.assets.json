@@ -371,6 +371,20 @@
         "runtime": {
           "bin/placeholder/RepositoryLayer.dll": {}
         }
+      },
+      "ServicesLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "DomainLayer": "1.0.0",
+          "RepositoryLayer": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ServicesLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ServicesLayer.dll": {}
+        }
       }
     }
   },
@@ -1063,6 +1077,11 @@
       "type": "project",
       "path": "../RepositoryLayer/RepositoryLayer.csproj",
       "msbuildProject": "../RepositoryLayer/RepositoryLayer.csproj"
+    },
+    "ServicesLayer/1.0.0": {
+      "type": "project",
+      "path": "../ServicesLayer/ServicesLayer.csproj",
+      "msbuildProject": "../ServicesLayer/ServicesLayer.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1072,6 +1091,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.3",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 5.0.0",
       "RepositoryLayer >= 1.0.0",
+      "ServicesLayer >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
@@ -1104,6 +1124,9 @@
           "projectReferences": {
             "D:\\ERM\\ERMCoreUI\\RepositoryLayer\\RepositoryLayer.csproj": {
               "projectPath": "D:\\ERM\\ERMCoreUI\\RepositoryLayer\\RepositoryLayer.csproj"
+            },
+            "D:\\ERM\\ERMCoreUI\\ServicesLayer\\ServicesLayer.csproj": {
+              "projectPath": "D:\\ERM\\ERMCoreUI\\ServicesLayer\\ServicesLayer.csproj"
             }
           }
         }

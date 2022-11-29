@@ -10,3 +10,8 @@ D:\ERM\ERMCoreUI\ServicesLayer\obj\Debug\net5.0\ServicesLayer.csproj.CoreCompile
 D:\ERM\ERMCoreUI\ServicesLayer\obj\Debug\net5.0\ServicesLayer.dll
 D:\ERM\ERMCoreUI\ServicesLayer\obj\Debug\net5.0\ref\ServicesLayer.dll
 D:\ERM\ERMCoreUI\ServicesLayer\obj\Debug\net5.0\ServicesLayer.pdb
+D:\ERM\ERMCoreUI\ServicesLayer\bin\Debug\net5.0\DomainLayer.dll
+D:\ERM\ERMCoreUI\ServicesLayer\bin\Debug\net5.0\RepositoryLayer.dll
+D:\ERM\ERMCoreUI\ServicesLayer\bin\Debug\net5.0\DomainLayer.pdb
+D:\ERM\ERMCoreUI\ServicesLayer\bin\Debug\net5.0\RepositoryLayer.pdb
+D:\ERM\ERMCoreUI\ServicesLayer\obj\Debug\net5.0\ServicesLayer.csproj.CopyComplete
