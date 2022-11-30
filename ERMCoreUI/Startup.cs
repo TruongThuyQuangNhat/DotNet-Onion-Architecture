@@ -23,6 +23,7 @@ namespace ERMCoreUI
 {
     public class Startup
     {
+        private readonly string _policyName = "CorsPolicy";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -50,6 +51,15 @@ namespace ERMCoreUI
             services.AddTransient<IPhongBanService, PhongBanService>();
             services.AddTransient<IChucVuService, ChucVuService>();
             services.AddTransient<IChucDanhService, ChucDanhService>();
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy(name: _policyName, builder =>
+                {
+                    builder.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
             #endregion
         }
 
@@ -66,6 +76,8 @@ namespace ERMCoreUI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(_policyName);
 
             app.UseAuthorization();
 

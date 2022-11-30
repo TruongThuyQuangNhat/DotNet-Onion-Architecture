@@ -35,8 +35,13 @@ namespace ServicesLayer.NhanVienService
 
         public IEnumerable<NhanVienGetAll> getAllAsync(string page = "", string limit = "", string search = "", string key = "", string options = "")
         {
+            var queryResultPage = _repository.GetAll();
+            var chucvu = _repositoryChuVu.GetAll();
+            var chucdanh = _repositoryChucDanh.GetAll();
+            var phongban = _repositoryPhongBan.GetAll();
             int limitNew = 5;
             int pageNew = 1;
+
             if(page != "" && page != null)
             {
                 pageNew = int.Parse(page);
@@ -45,13 +50,12 @@ namespace ServicesLayer.NhanVienService
             {
                 limitNew = int.Parse(limit);
             }
-            var queryResultPage = _repository.GetAll();
-            var chucvu = _repositoryChuVu.GetAll();
-            var chucdanh = _repositoryChucDanh.GetAll();
-            var phongban = _repositoryPhongBan.GetAll();
+            // Search
             if (search != "" && search != null) {
                 queryResultPage = from i in queryResultPage where i.FirstName.Contains(search) || i.LastName.Contains(search) select i;
             }
+            int totalCount = queryResultPage.Count();
+            // Sort
             if (key != "" && key != null && options != "" && options != null)
             {
                 if (key == "firstname" && options == "asc")
@@ -69,10 +73,10 @@ namespace ServicesLayer.NhanVienService
                 }
             }
 
+            // Paginator
             queryResultPage = queryResultPage
             .Skip(limitNew * (pageNew - 1))
-            .Take(limitNew);
-
+            .Take(limitNew).ToList();
             var ketqua = from temp in queryResultPage
                          join c in chucvu on temp.ChucVu_ID equals c.Id
                          join d in chucdanh on temp.ChucDanh_ID equals d.Id
@@ -87,8 +91,6 @@ namespace ServicesLayer.NhanVienService
                              TenChucDanh = d.TenChucDanh,
                              TenPhongBan = p.TenPhongBan,
                          };
-
-            Console.WriteLine("6");
             return ketqua;
         }
 
@@ -112,6 +114,16 @@ namespace ServicesLayer.NhanVienService
             NhanVien n = getOne(id);
             _repository.Remove(n);
             _repository.SaveChanges();
+        }
+
+        public int getTotalCount(string search)
+        {
+            var list = _repository.GetAll();
+            if(search != null && search != "")
+            {
+                list = from i in list where i.FirstName.Contains(search) || i.LastName.Contains(search) select i;
+            }
+            return list.Count();
         }
     }
 }

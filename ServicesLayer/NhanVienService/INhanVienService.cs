@@ -10,6 +10,8 @@ namespace ServicesLayer.NhanVienService
     public interface INhanVienService
     {
         IEnumerable<NhanVienGetAll> getAllAsync(string page, string limit, string search, string key, string options);
+
+        int getTotalCount(string search);
         NhanVien getOne(string id);
         void create(NhanVien t);
         void update(NhanVien t);

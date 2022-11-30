@@ -32,6 +32,13 @@ namespace ERMCoreUI.Controllers
             return new NotFoundResult();
         }
 
+        [HttpGet(nameof(TotalCountOfGetAll))]
+        public IActionResult TotalCountOfGetAll(string search)
+        {
+            int result = _nhanVienService.getTotalCount(search);
+            return Ok(result);
+        }
+
         [HttpGet(nameof(GetAllNhanVien))]
         public IActionResult GetAllNhanVien(string page, string limit, string search, string key, string options)
         {
