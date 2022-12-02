@@ -42,3 +42,4 @@ D:\ERM\ERMCoreUI\ERMCoreUI\bin\Debug\net5.0\Humanizer.dll
 D:\ERM\ERMCoreUI\ERMCoreUI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 D:\ERM\ERMCoreUI\ERMCoreUI\bin\Debug\net5.0\ServicesLayer.dll
 D:\ERM\ERMCoreUI\ERMCoreUI\bin\Debug\net5.0\ServicesLayer.pdb
+D:\ERM\ERMCoreUI\ERMCoreUI\bin\Debug\net5.0\Newtonsoft.Json.dll

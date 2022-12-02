@@ -89,7 +89,7 @@ namespace ERMCoreUI
             app.UseStaticFiles();    // for the wwwroot folder
 
             // for the wwwroot/uploads folder
-            string uploadsDir = Path.Combine(env.WebRootPath, "uploads");
+            string uploadsDir = Path.Combine(env.WebRootPath, "images");
             if (!Directory.Exists(uploadsDir))
                 Directory.CreateDirectory(uploadsDir);
 

@@ -8,6 +8,7 @@ using DomainLayer.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using ServicesLayer;
 using ServicesLayer.NhanVienService;
 
@@ -58,9 +59,16 @@ namespace ERMCoreUI.Controllers
         [HttpPost(nameof(InsertNhanVien))]
         public IActionResult InsertNhanVien(NhanVien NhanVien)
         {
-            _nhanVienService.create(NhanVien);
-            return Ok("Data inserted");
-
+            NhanVien temp = _nhanVienService.getOne(NhanVien.Id);
+            if(temp == null)
+            {
+                _nhanVienService.create(NhanVien);
+                string JSONResult = JsonConvert.SerializeObject(NhanVien);
+                return Ok(JSONResult);
+            } else
+            {
+                return Conflict();
+            }
         }
         [HttpPut(nameof(UpdateNhanVien))]
         public IActionResult UpdateNhanVien(NhanVien NhanVien)
@@ -93,7 +101,7 @@ namespace ERMCoreUI.Controllers
             try
             {
                 string webRootPath = _hostingEnvironment.WebRootPath;
-                string uploadsDir = Path.Combine(webRootPath, "uploads");
+                string uploadsDir = Path.Combine(webRootPath, "images");
 
                 // wwwroot/uploads/
                 if (!Directory.Exists(uploadsDir))
