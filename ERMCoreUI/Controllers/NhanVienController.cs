@@ -73,15 +73,28 @@ namespace ERMCoreUI.Controllers
         [HttpPut(nameof(UpdateNhanVien))]
         public IActionResult UpdateNhanVien(NhanVien NhanVien)
         {
-            _nhanVienService.update(NhanVien);
-            return Ok("Updation done");
+            NhanVien temp = _nhanVienService.getOne(NhanVien.Id);
+            if (temp == null)
+            {
+                return NotFound();
 
+            }
+            _nhanVienService.update(NhanVien);
+            string JSONResult = JsonConvert.SerializeObject("updation one success");
+            return Ok(JSONResult);
         }
         [HttpDelete(nameof(DeleteNhanVien))]
         public IActionResult DeleteNhanVien(string Id)
         {
+            NhanVien temp = _nhanVienService.getOne(Id);
+            if (temp == null)
+            {
+                return NotFound();
+
+            }
             _nhanVienService.delete(Id);
-            return Ok("Data Deleted");
+            string JSONResult = JsonConvert.SerializeObject("Data Deleted");
+            return Ok(JSONResult);
 
         }
 

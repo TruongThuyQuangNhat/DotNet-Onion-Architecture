@@ -45,15 +45,19 @@ namespace ERMCoreUI
             });
 
             #region Connection String  
-            services.AddDbContext<ApplicationDbContext>(item => item.UseNpgsql(Configuration.GetConnectionString("myconn")));
+            services.AddDbContext<ApplicationDbContext>(item =>
+            {
+                item.UseNpgsql(Configuration.GetConnectionString("myconn"));
+                item.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            });
             #endregion
 
             #region Services Injected  
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            services.AddTransient<INhanVienService, NhanVienService>();
-            services.AddTransient<IPhongBanService, PhongBanService>();
-            services.AddTransient<IChucVuService, ChucVuService>();
-            services.AddTransient<IChucDanhService, ChucDanhService>();
+            services.AddScoped<INhanVienService, NhanVienService>();
+            services.AddScoped<IPhongBanService, PhongBanService>();
+            services.AddScoped<IChucVuService, ChucVuService>();
+            services.AddScoped<IChucDanhService, ChucDanhService>();
             services.AddCors(opt =>
             {
                 opt.AddPolicy(name: _policyName, builder =>

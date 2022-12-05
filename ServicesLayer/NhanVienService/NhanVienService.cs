@@ -40,7 +40,7 @@ namespace ServicesLayer.NhanVienService
             var chucdanh = _repositoryChucDanh.GetAll();
             var phongban = _repositoryPhongBan.GetAll();
             int limitNew = 5;
-            int pageNew = 1;
+            int pageNew = 0;
 
             if(page != "" && page != null)
             {
@@ -75,7 +75,7 @@ namespace ServicesLayer.NhanVienService
 
             // Paginator
             queryResultPage = queryResultPage
-            .Skip(limitNew * (pageNew - 1))
+            .Skip(limitNew * (pageNew))
             .Take(limitNew).ToList();
             var ketqua = from temp in queryResultPage
                          join c in chucvu on temp.ChucVu_ID equals c.Id
@@ -106,6 +106,7 @@ namespace ServicesLayer.NhanVienService
 
         public void update(NhanVien t)
         {
+            
             _repository.Update(t);
         }
 
