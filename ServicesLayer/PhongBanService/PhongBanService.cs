@@ -28,32 +28,15 @@ namespace ServicesLayer.PhongBanService
             _repository.SaveChanges();
         }
 
-        public IEnumerable<PhongBan> getAllAsync(string page = "", string limit = "", string search = "")
+        public IEnumerable<PhongBan> getAllAsync(string parrent_id)
         {
-            int limitNew = 5;
-            int pageNew = 1;
-            if (page != "" && page != null)
+            if(parrent_id == null)
             {
-                pageNew = int.Parse(page);
-            }
-            if (limit != "" && limit != null)
-            {
-                limitNew = int.Parse(limit);
+                parrent_id = "0";
             }
             var r = _repository.GetAll();
-            var queryResultPage = r;
-            if (search != "" && search != null)
-            {
-                queryResultPage = r.Where(a =>
-                {
-                    return a.TenPhongBan.Contains(search) || a.TenPhongBan.Contains(search);
-                });
-            }
-            
-            queryResultPage = queryResultPage
-            .Skip(limitNew * (pageNew - 1))
-            .Take(limitNew);
-            return queryResultPage;
+            r = r.Where(i => i.parrent_id == parrent_id).ToList();
+            return r;
         }
 
         public PhongBan getOne(string id)

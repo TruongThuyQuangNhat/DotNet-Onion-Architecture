@@ -30,9 +30,9 @@ namespace ERMCoreUI.Controllers
         }
 
         [HttpGet(nameof(GetAllPhongBan))]
-        public IActionResult GetAllPhongBan(string page, string limit, string search)
+        public IActionResult GetAllPhongBan(string parrent_id)
         {
-            var result = _phongBanService.getAllAsync(page, limit, search);
+            var result = _phongBanService.getAllAsync(parrent_id);
             if (result is not null)
             {
                 return Ok(result);

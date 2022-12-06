@@ -9,7 +9,7 @@ namespace ServicesLayer.PhongBanService
 {
     public interface IPhongBanService
     {
-        IEnumerable<PhongBan> getAllAsync(string page, string limit, string search);
+        IEnumerable<PhongBan> getAllAsync(string parrent_id);
         PhongBan getOne(string id);
         void create(PhongBan phongban);
         void update(PhongBan phongban);
