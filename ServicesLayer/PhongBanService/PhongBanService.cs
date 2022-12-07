@@ -28,17 +28,16 @@ namespace ServicesLayer.PhongBanService
             _repository.SaveChanges();
         }
 
-        public IEnumerable<PhongBan> getAllAsync(string parrent_id)
+        public IEnumerable<PhongBan> getAllAsync()
         {
-            if(parrent_id == null)
-            {
-                parrent_id = "0";
-            }
             var r = _repository.GetAll();
-            r = r.Where(i => i.parrent_id == parrent_id).ToList();
             return r;
         }
 
+        //public getChildren(string parrent_id)
+        //{
+
+        //}
         public PhongBan getOne(string id)
         {
             return _repository.Get(id);

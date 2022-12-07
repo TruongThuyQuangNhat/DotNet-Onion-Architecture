@@ -20,6 +20,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ERMCoreUI
@@ -67,6 +68,9 @@ namespace ERMCoreUI
                         .AllowAnyMethod();
                 });
             });
+            services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
+
+
             #endregion
         }
 
