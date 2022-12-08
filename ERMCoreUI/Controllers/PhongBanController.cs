@@ -32,26 +32,11 @@ namespace ERMCoreUI.Controllers
         [HttpGet(nameof(GetAllPhongBan))]
         public IActionResult GetAllPhongBan()
         {
-             var result1 = _phongBanService.getAllAsync().ToList();
-            var test1 = new List<tempModel>();
-            var list = new List<PhongBan>();
-            //    list.ForEach(x => { x.listPhongBan.AddRange(result1) });
-
-            list = result1.Take(2).ToList();
-
-            foreach (var item in result1)
+            List<tempModel> test1 = _phongBanService.getAllAsync();
+            if (test1 != null)
             {
-                var model = new tempModel();
-                model.PhongBan = item;
-                model.listPhongBan = list;
-                test1.Add(model);
-
+                return Ok(test1.ToArray());
             }
-            if (test1 is not null)
-            {
-                return Ok(test1 ?? null);
-            }
-            // return test1;
             return BadRequest("No records found");
         }
         [HttpPost(nameof(InsertPhongBan))]

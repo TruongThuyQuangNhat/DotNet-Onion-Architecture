@@ -20,7 +20,6 @@ namespace ServicesLayer.PhongBanService
         {
             _repository.Insert(phongban);
         }
-
         public void delete(string id)
         {
             PhongBan temp = getOne(id);
@@ -28,21 +27,46 @@ namespace ServicesLayer.PhongBanService
             _repository.SaveChanges();
         }
 
-        public IEnumerable<PhongBan> getAllAsync()
+        public List<tempModel> getAllAsync()
+        {
+            List<tempModel> temp = this.getPhongBanWithParrentID("0");
+            //var r = _repository.GetAll();
+            return temp;
+        }
+        public List<PhongBan> GetChildren(string parrent_id)
         {
             var r = _repository.GetAll();
-            return r;
+            var i = r.Where(i => i.parrent_id == parrent_id).ToList();
+            return i;
         }
-
-        //public getChildren(string parrent_id)
-        //{
-
-        //}
+        public List<tempModel> getPhongBanWithParrentID(string parrent_id)
+        {
+            var allPB = _repository.GetAll().ToList();
+            List<tempModel> test1 = new List<tempModel>();
+            if (!parrent_id.Contains("PB"))
+            {
+                foreach (var item in allPB)
+                {
+                    if (item.parrent_id == parrent_id)
+                    {
+                        Console.WriteLine(item.parrent_id);
+                        var model = new tempModel();
+                        model.PhongBan = item;
+                        model.listPhongBan = this.GetChildren(item.Id).ToArray();
+                        foreach (var i in model.listPhongBan)
+                        {
+                            model.listTempModel = this.getPhongBanWithParrentID(i.Id);
+                        }
+                        test1.Add(model);
+                    }
+                }
+            }
+            return test1;
+        }
         public PhongBan getOne(string id)
         {
             return _repository.Get(id);
         }
-
         public void update(PhongBan phongban)
         {
             _repository.Update(phongban);

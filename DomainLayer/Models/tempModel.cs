@@ -6,17 +6,10 @@ using System.Threading.Tasks;
 
 namespace DomainLayer.Models
 {
-    [Serializable]
-    public class tempModel: PhongBan
+    public class tempModel
     {
         public PhongBan PhongBan { get; set; }
-        public List<PhongBan>? listPhongBan { get; set; }
-
-        public tempModel()
-        {
-            listPhongBan = new List<PhongBan>();
-        }
-
-
+        public PhongBan[] listPhongBan { get; set; }
+        public List<tempModel> listTempModel { get; set; }
     }
 }
