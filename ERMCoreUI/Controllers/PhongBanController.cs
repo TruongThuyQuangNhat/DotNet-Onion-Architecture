@@ -4,6 +4,8 @@ using ServicesLayer.PhongBanService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ERMCoreUI.Controllers
@@ -33,9 +35,15 @@ namespace ERMCoreUI.Controllers
         public IActionResult GetAllPhongBan()
         {
             List<tempModel> test1 = _phongBanService.getAllAsync();
-            if (test1 != null)
+            var options = new JsonSerializerOptions
             {
-                return Ok(test1.ToArray());
+                ReferenceHandler = ReferenceHandler.Preserve
+            };
+            var jsonString = JsonSerializer.Serialize(test1, options);
+            
+            if (jsonString != null)
+            {
+                return Ok(jsonString);
             }
             return BadRequest("No records found");
         }

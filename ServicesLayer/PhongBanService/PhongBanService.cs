@@ -30,7 +30,6 @@ namespace ServicesLayer.PhongBanService
         public List<tempModel> getAllAsync()
         {
             List<tempModel> temp = this.getPhongBanWithParrentID("0");
-            //var r = _repository.GetAll();
             return temp;
         }
         public List<PhongBan> GetChildren(string parrent_id)
@@ -47,18 +46,32 @@ namespace ServicesLayer.PhongBanService
             {
                 foreach (var item in allPB)
                 {
-                    if (item.parrent_id == parrent_id)
+                    if (item.parrent_id == parrent_id && item.Id.Contains("K"))
                     {
-                        Console.WriteLine(item.parrent_id);
                         var model = new tempModel();
                         model.PhongBan = item;
-                        model.listPhongBan = this.GetChildren(item.Id).ToArray();
-                        foreach (var i in model.listPhongBan)
-                        {
-                            model.listTempModel = this.getPhongBanWithParrentID(i.Id);
-                        }
+                        model.listTempModel = getPhongBanWithParrentID(item.Id);
+                        test1.Add(model);
+                    } else if (item.parrent_id == parrent_id && item.Id.Contains("PB"))
+                    {
+                        var model = new tempModel();
+                        model.PhongBan = item;
+                        model.listTempModel = new List<tempModel>();
                         test1.Add(model);
                     }
+                }
+            } else
+            {
+                var temp = getOne(parrent_id);
+                var arr = GetChildren(temp.parrent_id);
+                foreach(var i in arr.ToArray())
+                {
+                    tempModel r = new tempModel()
+                    {
+                        PhongBan = i,
+                        listTempModel = new List<tempModel>()
+                    };
+                    test1.Add(r);
                 }
             }
             return test1;

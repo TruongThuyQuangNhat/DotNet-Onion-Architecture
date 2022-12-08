@@ -9,7 +9,7 @@ namespace DomainLayer.Models
     public class tempModel
     {
         public PhongBan PhongBan { get; set; }
-        public PhongBan[] listPhongBan { get; set; }
+        //public PhongBan[] listPhongBan { get; set; }
         public List<tempModel> listTempModel { get; set; }
     }
 }
