@@ -35,15 +35,10 @@ namespace ERMCoreUI.Controllers
         public IActionResult GetAllPhongBan()
         {
             List<tempModel> test1 = _phongBanService.getAllAsync();
-            var options = new JsonSerializerOptions
-            {
-                ReferenceHandler = ReferenceHandler.Preserve
-            };
-            var jsonString = JsonSerializer.Serialize(test1, options);
             
-            if (jsonString != null)
+            if (test1 != null)
             {
-                return Ok(jsonString);
+                return Ok(test1);
             }
             return BadRequest("No records found");
         }

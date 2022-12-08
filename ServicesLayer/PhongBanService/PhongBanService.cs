@@ -68,8 +68,7 @@ namespace ServicesLayer.PhongBanService
                 {
                     tempModel r = new tempModel()
                     {
-                        PhongBan = i,
-                        listTempModel = new List<tempModel>()
+                        PhongBan = i
                     };
                     test1.Add(r);
                 }

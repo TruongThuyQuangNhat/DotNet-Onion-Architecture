@@ -10,6 +10,7 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Serialization;
 using RepositoryLayer;
 using ServicesLayer;
 using ServicesLayer.ChucDanhService;
@@ -68,9 +69,10 @@ namespace ERMCoreUI
                         .AllowAnyMethod();
                 });
             });
-            services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
+            //  services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
 
-
+            services.AddControllersWithViews().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling =
+            Newtonsoft.Json.ReferenceLoopHandling.Ignore).AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
             #endregion
         }
 
@@ -89,6 +91,7 @@ namespace ERMCoreUI
             app.UseRouting();
 
             app.UseCors(_policyName);
+           // app.UseCors(options => options.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:4200"));
 
             app.UseAuthorization();
 
