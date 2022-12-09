@@ -15,5 +15,7 @@ namespace DomainLayer.Models
 
         [Required]
         public string parrent_id { get; set; }
+
+
     }
 }

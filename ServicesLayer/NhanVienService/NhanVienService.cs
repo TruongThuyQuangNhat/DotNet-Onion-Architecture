@@ -61,7 +61,7 @@ namespace ServicesLayer.NhanVienService
             }
             // Search
             if (search != "" && search != null) {
-                queryResultPage = from i in queryResultPage where i.FirstName.Contains(search) || i.LastName.Contains(search) select i;
+                queryResultPage = from i in queryResultPage where i.FirstName.Contains(search.Trim()) || i.LastName.Contains(search.Trim()) select i;
             }
             if(chucDanh_id != "" && chucDanh_id != null)
             {
@@ -72,7 +72,7 @@ namespace ServicesLayer.NhanVienService
                 queryResultPage = from i in queryResultPage where i.ChucVu_ID.Equals(chucVu_id) select i;
             }
             if (phongBan_id != "" && phongBan_id != null)
-            {
+            { 
                 queryResultPage = from i in queryResultPage where i.PhongBan_ID.Equals(phongBan_id) select i;
             }
             // Sort
