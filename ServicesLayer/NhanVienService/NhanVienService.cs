@@ -33,7 +33,16 @@ namespace ServicesLayer.NhanVienService
         #endregion
 
 
-        public IEnumerable<NhanVienGetAll> getAllAsync(string page = "", string limit = "", string search = "", string key = "", string options = "")
+        public IEnumerable<NhanVienGetAll> getAllAsync(
+            string page = "", 
+            string limit = "", 
+            string search = "", 
+            string key = "", 
+            string options = "",
+            string chucDanh_id = "",
+            string chucVu_id = "",
+            string phongBan_id = ""
+            )
         {
             var queryResultPage = _repository.GetAll();
             var chucvu = _repositoryChuVu.GetAll();
@@ -54,7 +63,18 @@ namespace ServicesLayer.NhanVienService
             if (search != "" && search != null) {
                 queryResultPage = from i in queryResultPage where i.FirstName.Contains(search) || i.LastName.Contains(search) select i;
             }
-            int totalCount = queryResultPage.Count();
+            if(chucDanh_id != "" && chucDanh_id != null)
+            {
+                queryResultPage = from i in queryResultPage where i.ChucDanh_ID.Equals(chucDanh_id) select i;
+            }
+            if (chucVu_id != "" && chucVu_id != null)
+            {
+                queryResultPage = from i in queryResultPage where i.ChucVu_ID.Equals(chucVu_id) select i;
+            }
+            if (phongBan_id != "" && phongBan_id != null)
+            {
+                queryResultPage = from i in queryResultPage where i.PhongBan_ID.Equals(phongBan_id) select i;
+            }
             // Sort
             if (key != "" && key != null && options != "" && options != null)
             {
@@ -117,12 +137,29 @@ namespace ServicesLayer.NhanVienService
             _repository.SaveChanges();
         }
 
-        public int getTotalCount(string search)
+        public int getTotalCount(
+            string search,
+            string chucDanh_id,
+            string chucVu_id,
+            string phongBan_id
+        )
         {
             var list = _repository.GetAll();
             if(search != null && search != "")
             {
                 list = from i in list where i.FirstName.Contains(search) || i.LastName.Contains(search) select i;
+            }
+            if (chucDanh_id != "" && chucDanh_id != null)
+            {
+                list = from i in list where i.ChucDanh_ID.Equals(chucDanh_id) select i;
+            }
+            if (chucVu_id != "" && chucVu_id != null)
+            {
+                list = from i in list where i.ChucVu_ID.Equals(chucVu_id) select i;
+            }
+            if (phongBan_id != "" && phongBan_id != null)
+            {
+                list = from i in list where i.PhongBan_ID.Equals(phongBan_id) select i;
             }
             return list.Count();
         }

@@ -39,16 +39,30 @@ namespace ERMCoreUI.Controllers
         }
 
         [HttpGet(nameof(TotalCountOfGetAll))]
-        public IActionResult TotalCountOfGetAll(string search)
+        public IActionResult TotalCountOfGetAll(
+            string search,
+            string chucDanh_id,
+            string chucVu_id,
+            string phongBan_id
+        )
         {
-            int result = _nhanVienService.getTotalCount(search);
+            int result = _nhanVienService.getTotalCount(search, chucDanh_id, chucVu_id, phongBan_id);
             return Ok(result);
         }
 
         [HttpGet(nameof(GetAllNhanVien))]
-        public IActionResult GetAllNhanVien(string page, string limit, string search, string key, string options)
+        public IActionResult GetAllNhanVien(
+            string page, 
+            string limit, 
+            string search, 
+            string key, 
+            string options,
+            string chucDanh_id,
+            string chucVu_id,
+            string phongBan_id
+            )
         {
-            var result = _nhanVienService.getAllAsync(page, limit, search, key, options);
+            var result = _nhanVienService.getAllAsync(page, limit, search, key, options, chucDanh_id, chucVu_id, phongBan_id);
             if (result is not null)
             {
                 return Ok(result);
